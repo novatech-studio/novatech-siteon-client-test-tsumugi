@@ -227,7 +227,7 @@
       min-height: 44px;
       padding: 0 14px;
       border: none;
-      border-radius: 8px;
+      border-radius: calc(var(--r) * 2);
       background: rgba(var(--bg-rgb), 0.92);
       color: var(--text);
       font: inherit;
@@ -267,7 +267,7 @@
       min-height: 48px;
       padding: 12px 20px;
       border: 1px solid transparent;
-      border-radius: 8px !important;
+      border-radius: calc(var(--r) * 2);
       font-size: 0.92rem;
       font-weight: 500;
       letter-spacing: 0.1em;
@@ -705,7 +705,7 @@
       min-height: 32px;
       align-items: center;
       padding: 4px 12px;
-      border-radius: 100px;
+      border-radius: 999px;
       background: rgba(var(--accent-rgb), 0.1);
       border: none;
       color: var(--accent);
@@ -928,6 +928,17 @@
     }
     .section-subtitle { font-size: 0.78rem; letter-spacing: 0.14em; }
 
+
+    /* デモ注記。色は footer から継承させる（ハードコードするとフッターの
+       配色を変えたときに取り残される）。 */
+    .demo-note {
+      margin: 0;
+      padding: 12px 0 16px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: inherit;
+    }
+
     @media (max-width: 1024px) {
       .section {
         padding: 80px 0;
@@ -971,7 +982,7 @@
         /* 背景は完全不透明にする（rules.md 50） */
         background: var(--bg);
         border: none;
-        border-radius: 8px;
+        border-radius: calc(var(--r) * 2);
         box-shadow: var(--shadow-soft);
       }
 
@@ -1310,7 +1321,6 @@
       <div class="container hero-inner">
         <div class="hero-content fade-in">
           <div class="hero-copy">
-            <span class="eyebrow" lang="en">Corporate x Clean</span>
             <h1 class="hero-title" lang="en">TSUMUGI</h1>
             <p class="hero-lead">恵比寿・代官山・吉祥寺・横浜元町の4店舗で、一人ひとりに誠実に向き合う美容体験をお届けしています。店舗ごとの個性を大切にしながら、技術・接客・空間づくりにおいてグループとしての一貫性を磨き続けています。</p>
             <div class="hero-actions">
@@ -1594,7 +1604,6 @@
 
     <section id="cta" class="section cta-section">
       <div class="container cta-wrap fade-in">
-        <p class="cta-catch" lang="en">Choose Your Salon</p>
         <p class="cta-sub">ご希望のエリアや雰囲気に合わせて、各店舗のページからご予約先をご確認いただけます。グループとしての安心感と、店舗ごとの魅力の両方をご体感ください。</p>
         <div class="cta-grid">
           <a class="btn btn-primary" href="https://coubic.com/example">ネットで予約する</a>
@@ -1624,7 +1633,8 @@
         <span>&copy; 2026 TSUMUGI. All rights reserved.</span>
       </div>
     </div>
-  </footer>
+    <p class="demo-note">※ SateOnの制作イメージです。実在する店舗・企業ではありません。</p>
+</footer>
 
   <div class="sticky-cta">
     <a class="btn" href="#cta">各店舗のご予約</a>
