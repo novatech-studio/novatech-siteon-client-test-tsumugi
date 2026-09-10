@@ -45,7 +45,16 @@
       --shadow-card: 0 16px 40px rgba(var(--bg-dark-rgb), 0.06);
       --font-sans: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
       --font-display: "DM Sans", "Segoe UI", "Trebuchet MS", sans-serif;
-    }
+    
+      /* ===== タイプスケール（Refero Styles の DESIGN.md 形式に倣う）=====
+         役割ごとに1つだけ値を持ち、表にない値は新しく作らない。
+         大きい見出しはサイト固有の設計なのでここには含めない。 */
+      --t-caption: 0.8rem;
+      --t-small: 0.9rem;
+      --t-body: 1rem;
+      --t-lead: 1.15rem;
+      --t-subheading: clamp(1.25rem, 2vw, 1.5rem);
+}
 
     * {
       box-sizing: border-box;
@@ -56,11 +65,25 @@
       overflow-x: hidden;
     }
 
+    /* h2 / h3 に font-size の指定がなく、ブラウザ既定（24px / 18.7px）のままだった。
+       役割として明示する。クラスで別途指定している見出しはそちらが優先される。 */
+    h2 {
+      font-size: clamp(1.6rem, 3.2vw, 2.25rem);
+      line-height: 1.45;
+      font-weight: 400;
+    }
+
+    h3 {
+      font-size: var(--t-subheading);
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
     body {
       overflow-x: hidden;
       margin: 0;
       font-family: var(--font-sans);
-      font-size: 14.5px;
+      font-size: var(--t-small);
       font-weight: 300;
       line-height: 1.85;
       color: var(--text);
@@ -129,7 +152,7 @@
     .section-number {
       display: inline-block;
       font-family: var(--font-display);
-      font-size: 0.72rem;
+      font-size: var(--t-caption);
       letter-spacing: 0.2em;
       color: var(--accent);
       text-transform: uppercase;
@@ -145,7 +168,7 @@
 
     .section-subtitle {
       margin: 0;
-      font-size: 0.85rem;
+      font-size: var(--t-small);
       font-weight: 500;
       color: var(--text-light);
       letter-spacing: 0.08em;
@@ -163,7 +186,7 @@
       align-items: center;
       gap: 10px;
       font-family: var(--font-display);
-      font-size: 0.84rem;
+      font-size: var(--t-caption);
       color: var(--accent);
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -207,13 +230,13 @@
 
     .brand-mark {
       font-family: var(--font-display);
-      font-size: 1.15rem;
+      font-size: var(--t-lead);
       letter-spacing: 0.22em;
       text-transform: uppercase;
     }
 
     .brand-sub {
-      font-size: 0.75rem;
+      font-size: var(--t-caption);
       color: var(--text-light);
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -246,7 +269,7 @@
       margin: 0;
       padding: 0;
       list-style: none;
-      font-size: 0.9rem;
+      font-size: var(--t-small);
     }
 
     .nav-links a {
@@ -268,7 +291,7 @@
       padding: 12px 20px;
       border: 1px solid transparent;
       border-radius: calc(var(--r) * 2);
-      font-size: 0.92rem;
+      font-size: var(--t-small);
       font-weight: 500;
       letter-spacing: 0.1em;
       line-height: 1.4;
@@ -365,7 +388,7 @@
     .hero-lead {
       margin: 0;
       max-width: 640px;
-      font-size: clamp(1rem, 1.8vw, 1.14rem);
+      font-size: var(--t-lead);
       color: rgba(var(--bg-rgb), 0.92);
     }
 
@@ -389,7 +412,7 @@
 
     .hero-card-title {
       margin: 0 0 10px;
-      font-size: 0.82rem;
+      font-size: var(--t-caption);
       color: rgba(var(--bg-rgb), 0.78);
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -397,7 +420,7 @@
 
     .hero-card-value {
       margin: 0;
-      font-size: 1.05rem;
+      font-size: var(--t-body);
       font-weight: 500;
       color: var(--bg);
     }
@@ -460,13 +483,13 @@
     .company-grid h3,
     .recruit-grid h3 {
       margin: 0 0 18px;
-      font-size: 1.1rem;
+      font-size: var(--t-lead);
       font-weight: 500;
     }
 
     .message-copy {
       margin: 0;
-      font-size: 1rem;
+      font-size: var(--t-body);
       color: var(--text-mid);
     }
 
@@ -491,7 +514,7 @@
     .philosophy-list strong {
       display: block;
       margin-bottom: 6px;
-      font-size: 0.96rem;
+      font-size: var(--t-body);
       font-weight: 500;
     }
 
@@ -547,13 +570,13 @@
 
     .salon-card-head h3 {
       margin: 0;
-      font-size: 1.1rem;
+      font-size: var(--t-lead);
       font-weight: 500;
     }
 
     .salon-card-en {
       font-family: var(--font-display);
-      font-size: 0.8rem;
+      font-size: var(--t-caption);
       color: var(--accent);
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -654,7 +677,7 @@
 
     .timeline time {
       font-family: var(--font-display);
-      font-size: 0.9rem;
+      font-size: var(--t-small);
       color: var(--accent);
       letter-spacing: 0.08em;
     }
@@ -695,7 +718,7 @@
 
     .topic-date,
     .topic-category {
-      font-size: 0.88rem;
+      font-size: var(--t-small);
       color: var(--text-light);
     }
 
@@ -725,7 +748,7 @@
 
     .recruit-message {
       margin: 0;
-      font-size: 1rem;
+      font-size: var(--t-body);
       color: var(--text-mid);
     }
 
@@ -752,7 +775,7 @@
 
     .position-card h4 {
       margin: 0 0 16px;
-      font-size: 1rem;
+      font-size: var(--t-body);
       font-weight: 500;
     }
 
@@ -849,7 +872,7 @@
 
     .footer-logo strong {
       font-family: var(--font-display);
-      font-size: 1.1rem;
+      font-size: var(--t-lead);
       font-weight: 400;
       letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -877,7 +900,7 @@
       padding-top: 24px;
       border-top: 1px solid rgba(var(--bg-rgb), 0.14);
       color: rgba(var(--bg-rgb), 0.64);
-      font-size: 0.88rem;
+      font-size: var(--t-small);
     }
 
     .sticky-cta {
@@ -917,7 +940,7 @@
        必ず mobile-safety のメディアクエリより前に置く。
        後ろに置くと 12px 下限などの安全ルールを詳細度なしで打ち消す。 */
 
-    body { font-size: 16px; line-height: 1.8; }
+    body { font-size: var(--t-body); line-height: 1.8; }
     p, li, dd { line-height: 1.85; }
 
     .section-head { gap: 2px; margin-bottom: clamp(36px, 4.5vw, 64px); }
@@ -926,7 +949,7 @@
       line-height: 0.98;
       letter-spacing: 0.01em;
     }
-    .section-subtitle { font-size: 0.78rem; letter-spacing: 0.14em; }
+    .section-subtitle { font-size: var(--t-caption); letter-spacing: 0.14em; }
 
 
     /* デモ注記。色は footer から継承させる（ハードコードするとフッターの
@@ -935,7 +958,7 @@
       margin: 0;
       padding: 12px 0 16px;
       text-align: center;
-      font-size: 0.8rem;
+      font-size: var(--t-caption);
       color: inherit;
     }
 
@@ -1194,7 +1217,7 @@
       input,
       select,
       textarea {
-        font-size: 16px;
+        font-size: var(--t-body);
       }
 
       a[href^="tel:"],
@@ -1218,7 +1241,7 @@
     @media (max-width: 768px) {
       /* 6. 実機で読めない極小文字の下限（日本語は12px未満だと潰れる） */
       .section-number {
-        font-size: 12px;
+        font-size: var(--t-caption);
       }
     }
 </style>
